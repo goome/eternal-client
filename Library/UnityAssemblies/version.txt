@@ -1,0 +1,4 @@
+5.3.1f1:1.9.9.0
+StandaloneOSXIntel
+/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
