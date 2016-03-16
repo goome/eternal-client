@@ -81,6 +81,8 @@ public class LoginController : MessageController {
         CMsgAccountLoginRequest request = new CMsgAccountLoginRequest();
         request.account = account;
 
+		Debug.Log ("---login---:" + request.account);
+
         MemoryStream stream = new MemoryStream();
         Serializer.Serialize<CMsgAccountLoginRequest>(stream, request);
 

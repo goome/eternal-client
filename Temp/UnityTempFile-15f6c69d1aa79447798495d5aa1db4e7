@@ -6,7 +6,8 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
--define:UNITY_5_3_1
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_3_4
 -define:UNITY_5_3
 -define:UNITY_5
 -define:ENABLE_NEW_BUGREPORTER
@@ -170,6 +171,7 @@
 'Assets/Scripts/Login/LoginUI.cs'
 'Assets/Scripts/Message/LoginMessage.cs'
 'Assets/Scripts/Message/RoleMessage.cs'
+'Assets/Scripts/Message/RoleMessage2.cs'
 'Assets/Scripts/Net/CircularBuffer.cs'
 'Assets/Scripts/Net/Message.cs'
 'Assets/Scripts/Net/MessageController.cs'

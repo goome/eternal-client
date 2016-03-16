@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using role_message;
 
 public class RoleUI : MonoBehaviour {
 
@@ -72,8 +73,8 @@ public class RoleUI : MonoBehaviour {
     {
         this.msgText.text = msg;
     }
-
-    public void ShowRoleList(List<role_message.Role> roles)
+		
+    public void ShowRoleList(List<Role> roles)
     {
 
     }
