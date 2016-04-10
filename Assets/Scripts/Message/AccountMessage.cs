@@ -16,9 +16,9 @@ namespace account_message {
 	[ProtoContract]
 	class MsgAccountLoginRequest {
 		[ProtoMember(1)]
-		public string account { get; set;}
+		public string account { get; set; }
 		[ProtoMember(2)]
-		public string password { get; set;}
+		public string password { get; set; }
 	}
 
 	[ProtoContract]
@@ -36,9 +36,9 @@ namespace account_message {
 	[ProtoContract]
 	class MsgAccountRegistRequest {
 		[ProtoMember(1)]
-		public string account { get; set;}
+		public string account { get; set; }
 		[ProtoMember(2)]
-		public string password { get; set;}
+		public string password { get; set; }
 	}
 
 	[ProtoContract]

@@ -185,6 +185,7 @@ public class NetManager
             index++;
         }
 
+		Debug.Log("msg size:" + msgByte.Length);
         mStream.Write(msgByte, 0, msgByte.Length);
         mStream.Flush();
     }
