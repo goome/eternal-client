@@ -9,12 +9,12 @@ public class MessageDispatcher
 {
     private static MessageDispatcher instance = null;
 
-    public delegate void LoginDelegate(int msgno, MemoryStream stream);
-    LoginDelegate loginDelegate;
+    public delegate void AccountDelegate(int msgno, MemoryStream stream);
+	AccountDelegate accountDelegate;
 
     private MessageDispatcher()
     {
-        loginDelegate += LoginController.Instance.OnMessageResponse;
+		accountDelegate += AccountController.Instance.OnMessageResponse;
     }
 
     public static MessageDispatcher Instance
@@ -46,7 +46,7 @@ public class MessageDispatcher
         switch(module)
         {
             case Message.MSG_LOGIN_MODULE_NO >> 16:
-                loginDelegate(opcode, stream);
+				accountDelegate(opcode, stream);
                 break;
             case Message.MSG_ROLE_MODULE_NO >> 16:
                 RoleController.Instance.OnMessageResponse(opcode, stream);

@@ -3,6 +3,6 @@ using System.Collections;
 
 public class ApplicationData : MonoBehaviour {
 
-    public static long accountid = 0;
+	public static long authid = 0;
 
 }

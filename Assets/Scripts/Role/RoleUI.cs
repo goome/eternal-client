@@ -41,8 +41,8 @@ public class RoleUI : MonoBehaviour {
         msgText = GameObject.Find("MsgText").GetComponent<Text>();
         nicknameInput = GameObject.Find("NicknameInput").GetComponent<InputField>();
 
-        long accountid = ApplicationData.accountid;
-        RoleController.Instance.SendRoleListRequest(accountid);
+		long authid = ApplicationData.authid;
+		RoleController.Instance.SendRoleListRequest(authid);
 	}
 	
 	// Update is called once per frame

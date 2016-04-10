@@ -57,11 +57,11 @@ public class LoginUI : MonoBehaviour {
         }
         if(type == ButtonType.LOGIN)
         {
-            LoginController.Instance.SendLoginRequest(account);
+            AccountController.Instance.SendLoginRequest(account);
         }
         else if(type == ButtonType.REGIST)
         {
-            LoginController.Instance.SendRegistRequest(account);
+			AccountController.Instance.SendRegistRequest(account);
         }
     }
 

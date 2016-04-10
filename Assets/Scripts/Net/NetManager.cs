@@ -44,7 +44,7 @@ public class NetManager
         {
             mClient = new TcpClient(ip, port);
             mStream = mClient.GetStream();
-            
+			Debug.Log("connect to server success");
             return true;
         }
         catch

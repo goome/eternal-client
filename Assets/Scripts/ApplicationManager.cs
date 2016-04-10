@@ -10,8 +10,7 @@ public class ApplicationManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//        NetManager.Instance.Connect("114.215.210.189", 8888);
-		NetManager.Instance.Connect("127.0.0.1", 8888);
+		NetManager.Instance.Connect("localhost", 8888);
         NetManager.Instance.StartNetThread();
 	}
 	

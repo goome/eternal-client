@@ -75,7 +75,7 @@ public class RoleController : MessageController {
         CMsgRoleCreateRequest request = new CMsgRoleCreateRequest();
         request.nickname = nickname;
         request.roletype = 1;
-        request.accountid = ApplicationData.accountid.ToString();
+		request.accountid = ApplicationData.authid.ToString();
 
         MemoryStream stream = new MemoryStream();
         Serializer.Serialize<CMsgRoleCreateRequest>(stream, request);

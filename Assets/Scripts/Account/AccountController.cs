@@ -1,28 +1,28 @@
 ﻿using System.Collections;
 using System.IO;
-using login_message;
 using ProtoBuf;
 using UnityEngine;
 using System.Collections.Generic;
+using account_message;
 
-public class LoginController : MessageController {
+public class AccountController : MessageController {
 
-    private static LoginController instance = null;
+	private static AccountController instance = null;
 
-    public static LoginController Instance
+	public static AccountController Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new LoginController();
+				instance = new AccountController();
             }
 
             return instance;
         }
     }
 
-    private LoginController()
+	private AccountController()
     {
 
     }
@@ -45,16 +45,16 @@ public class LoginController : MessageController {
 
     private void OnAccountLoginResponse(MemoryStream stream)
     {
-        CMsgAccountLoginResponse response = ProtoBuf.Serializer.Deserialize<CMsgAccountLoginResponse>(stream);
-        long accountid = response.accountid;
-        Debug.Log("-------accountid:" + accountid);
-        if(accountid == 0)
+        MsgAccountLoginResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountLoginResponse>(stream);
+		long authid = response.authid;
+		Debug.Log("-------authid:" + authid);
+		if(authid == 0)
         {
             LoginUI.Instance.ShowErrorMsg("该用户不存在");
         }
         else
         {
-            ApplicationData.accountid = accountid;
+			ApplicationData.authid = authid;
             Application.LoadLevel("role");
         }
         
@@ -62,40 +62,42 @@ public class LoginController : MessageController {
 
     private void OnAccountRegistResponse(MemoryStream stream)
     {
-        CMsgAccountRegistResponse response = ProtoBuf.Serializer.Deserialize<CMsgAccountRegistResponse>(stream);
-        long accountid = response.accountid;
-        Debug.Log("-------accountid:" + accountid);
-        if (accountid == 0)
+        MsgAccountRegistResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountRegistResponse>(stream);
+		long authid = response.authid;
+		Debug.Log("-------authid:" + authid);
+		if (authid == 0)
         {
             LoginUI.Instance.ShowErrorMsg("该用户不存在");
         }
         else
         {
-            ApplicationData.accountid = accountid;
+			ApplicationData.authid = authid;
             Application.LoadLevel("role");
         }
     }
 
     public void SendLoginRequest(string account)
     {
-        CMsgAccountLoginRequest request = new CMsgAccountLoginRequest();
+        MsgAccountLoginRequest request = new MsgAccountLoginRequest();
         request.account = account;
+		request.password = "123456";
 
 		Debug.Log ("---login---:" + request.account);
 
         MemoryStream stream = new MemoryStream();
-        Serializer.Serialize<CMsgAccountLoginRequest>(stream, request);
+        Serializer.Serialize<MsgAccountLoginRequest>(stream, request);
 
         NetManager.Instance.Send(Message.MSG_ACCOUNT_LOGIN_REQUEST_C2S, stream);
     }
 
     public void SendRegistRequest(string account)
     {
-        CMsgAccountRegistRequest request = new CMsgAccountRegistRequest();
+        MsgAccountRegistRequest request = new MsgAccountRegistRequest();
         request.account = account;
+		request.password = "123456";
 
         MemoryStream stream = new MemoryStream();
-        Serializer.Serialize<CMsgAccountRegistRequest>(stream, request);
+        Serializer.Serialize<MsgAccountRegistRequest>(stream, request);
 
         NetManager.Instance.Send(Message.MSG_ACCOUNT_REGIST_REQUEST_C2S, stream);
     }
