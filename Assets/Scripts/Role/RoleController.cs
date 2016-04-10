@@ -58,11 +58,11 @@ public class RoleController : MessageController {
         RoleUI.Instance.ShowRoleList(list);
     }
 
-    public void SendRoleListRequest(long accountid)
+    public void SendRoleListRequest(long authid)
     {
-        Debug.Log("---accountid:" + accountid);
+        Debug.Log("---authid:" + authid);
         CMsgRoleListRequest request = new CMsgRoleListRequest();
-        request.accountid = accountid.ToString();
+        request.accountid = authid.ToString();
 
         MemoryStream stream = new MemoryStream();
         Serializer.Serialize<CMsgRoleListRequest>(stream, request);

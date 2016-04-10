@@ -93,35 +93,6 @@ public class NetManager
         return protocol;
     }
 
-    /*
-    public void Send(int msgno, short msgBodySize, byte[] msgBody)
-    {
-        //总长度=数据包长度所占字节+消息号长度+消息体长度
-        int pkgSize = 2 + 4 + msgBodySize;
-        byte[] msgByte = new byte[pkgSize];
-
-        int avaliableSize = pkgSize - 2;
-        msgByte[0] = (byte)(avaliableSize >> 8);
-        msgByte[1] = (byte)(avaliableSize);
-
-        msgByte[2] = (byte)(msgno >> 24);
-        msgByte[3] = (byte)(msgno >> 16);
-        msgByte[4] = (byte)(msgno >> 8);
-        msgByte[5] = (byte)(msgno);
-
-        int index = 6;
-        //message body
-        for (int i = 0; i < msgBody.Length; i++)
-        {
-            msgByte[index] = msgBody[i];
-            index++;
-        }
-
-        mStream.Write(msgByte, 0, msgByte.Length);
-        mStream.Flush();
-    }
-    */
-
     private void RecvFunc()
     {
         byte[] buf = new byte[1024];
@@ -130,11 +101,15 @@ public class NetManager
             int len = mStream.Read(buf, 0, buf.Length);
             if (len >= 6)
             {
-                short size = (short)(buf[0] << 8 | buf[1]);
-                int msgno = (int)(buf[2] << 24 | buf[3] << 16 | buf[4] << 8 | buf[5]);
-                Debug.Log("recv msg: " + Convert.ToString(msgno, 16));
-                //int module = msgno >> 16;
-                //int opcode = msgno & 0x0000FFFF;
+                //小端
+                //short size = (short)(buf[0] << 8 | buf[1]);
+                //int msgno = (int)(buf[2] << 24 | buf[3] << 16 | buf[4] << 8 | buf[5]);
+
+                //大端
+                short size = (short)(buf[1] << 8 | buf[0]);
+                int msgno = (int)(buf[5] << 24 | buf[4] << 16 | buf[3] << 8 | buf[2]);
+
+                Debug.Log("recv msg: " + Convert.ToString(msgno, 16));            
 
                 MemoryStream stream = new MemoryStream(buf, 6, len - 6);
                 Protocol protocol = new Protocol();
@@ -169,6 +144,8 @@ public class NetManager
         byte[] msgByte = new byte[pkgSize];
 
         int avaliableSize = pkgSize - 2;
+        /*
+        //小端
         msgByte[0] = (byte)(avaliableSize >> 8);
         msgByte[1] = (byte)(avaliableSize);
 
@@ -176,6 +153,16 @@ public class NetManager
         msgByte[3] = (byte)(msgno >> 16);
         msgByte[4] = (byte)(msgno >> 8);
         msgByte[5] = (byte)(msgno);
+        */
+
+        //大端
+        msgByte[1] = (byte)(avaliableSize >> 8);
+        msgByte[0] = (byte)(avaliableSize);
+
+        msgByte[5] = (byte)(msgno >> 24);
+        msgByte[4] = (byte)(msgno >> 16);
+        msgByte[3] = (byte)(msgno >> 8);
+        msgByte[2] = (byte)(msgno);
 
         int index = 6;
         //message body
