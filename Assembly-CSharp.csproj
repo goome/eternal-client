@@ -146,6 +146,7 @@
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\Scripts\Message\AccountMessage.cs" />
      <Compile Include="Assets\Scripts\Message\RoleMessage.cs" />
+     <Compile Include="Assets\Scripts\Message\ServerMessage.cs" />
      <Compile Include="Assets\Scripts\Net\CircularBuffer.cs" />
      <Compile Include="Assets\Scripts\Net\Message.cs" />
      <Compile Include="Assets\Scripts\Net\MessageController.cs" />

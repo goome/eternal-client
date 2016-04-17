@@ -44,41 +44,41 @@ public class RoleController : MessageController {
 
     private void OnRoleCreateResponse(MemoryStream stream)
     {
-        CMsgRoleCreateResponse response = ProtoBuf.Serializer.Deserialize<CMsgRoleCreateResponse>(stream);
-        Role role = response.role;
-        Debug.Log("---role---" + role.nickname);
+        MsgRoleCreateResponse response = ProtoBuf.Serializer.Deserialize<MsgRoleCreateResponse>(stream);
+		bool success = response.success;
+		Debug.Log("---create role---" + success);
     }
 
     private void OnRoleListResponse(MemoryStream stream)
     {
-        CMsgRoleListResponse response = ProtoBuf.Serializer.Deserialize<CMsgRoleListResponse>(stream);
-        List<Role> list = response.roles;
+        MsgRoleListResponse response = ProtoBuf.Serializer.Deserialize<MsgRoleListResponse>(stream);
+        List<MsgRole> list = response.roles;
         Debug.Log("---role list---" + list.Capacity);
 
         RoleUI.Instance.ShowRoleList(list);
     }
 
-    public void SendRoleListRequest(long authid)
+    public void SendRoleListRequest(string authid)
     {
         Debug.Log("---authid:" + authid);
-        CMsgRoleListRequest request = new CMsgRoleListRequest();
-        request.accountid = authid.ToString();
+        MsgRoleListRequest request = new MsgRoleListRequest();
+		request.authid = authid.ToString();
 
         MemoryStream stream = new MemoryStream();
-        Serializer.Serialize<CMsgRoleListRequest>(stream, request);
+        Serializer.Serialize<MsgRoleListRequest>(stream, request);
 
         NetManager.Instance.Send(Message.MSG_ROLE_LIST_REQUEST_C2S, stream);
     }
 
     public void SendRoleCreateRequest(string nickname)
     {
-        CMsgRoleCreateRequest request = new CMsgRoleCreateRequest();
+        MsgRoleCreateRequest request = new MsgRoleCreateRequest();
+		request.race = 1;
         request.nickname = nickname;
-        request.roletype = 1;
-		request.accountid = ApplicationData.authid.ToString();
+		request.authid = ApplicationData.authid.ToString();
 
         MemoryStream stream = new MemoryStream();
-        Serializer.Serialize<CMsgRoleCreateRequest>(stream, request);
+        Serializer.Serialize<MsgRoleCreateRequest>(stream, request);
 
         NetManager.Instance.Send(Message.MSG_ROLE_CREATE_REQUEST_C2S, stream);
     }

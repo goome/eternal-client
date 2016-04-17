@@ -46,9 +46,10 @@ public class AccountController : MessageController {
     private void OnAccountLoginResponse(MemoryStream stream)
     {
         MsgAccountLoginResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountLoginResponse>(stream);
-		long authid = response.authid;
-		Debug.Log("-------authid:" + authid);
-		if(authid == 0)
+		string authid = response.authid;
+		bool success = response.success;
+		Debug.Log("-------authid:" + authid + "," + success);
+		if(!success)
         {
             LoginUI.Instance.ShowErrorMsg("该用户不存在");
         }
@@ -63,11 +64,12 @@ public class AccountController : MessageController {
     private void OnAccountRegistResponse(MemoryStream stream)
     {
         MsgAccountRegistResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountRegistResponse>(stream);
-		long authid = response.authid;
-		Debug.Log("-------authid:" + authid);
-		if (authid == 0)
+		string authid = response.authid;
+		bool success = response.success;
+		Debug.Log("-------authid:" + authid + "," + success);
+		if (!success)
         {
-            LoginUI.Instance.ShowErrorMsg("该用户不存在");
+            LoginUI.Instance.ShowErrorMsg("注册失败");
         }
         else
         {
@@ -76,11 +78,11 @@ public class AccountController : MessageController {
         }
     }
 
-    public void SendLoginRequest(string account)
+	public void SendLoginRequest(string account, string password)
     {
         MsgAccountLoginRequest request = new MsgAccountLoginRequest();
         request.account = account;
-		request.password = "123456";
+		request.password = password;
 
 		Debug.Log ("---login---:" + request.account);
 
@@ -90,11 +92,11 @@ public class AccountController : MessageController {
         NetManager.Instance.Send(Message.MSG_ACCOUNT_LOGIN_REQUEST_C2S, stream);
     }
 
-    public void SendRegistRequest(string account)
+	public void SendRegistRequest(string account, string password)
     {
         MsgAccountRegistRequest request = new MsgAccountRegistRequest();
         request.account = account;
-		request.password = "123456";
+		request.password = password;
 
         MemoryStream stream = new MemoryStream();
         Serializer.Serialize<MsgAccountRegistRequest>(stream, request);

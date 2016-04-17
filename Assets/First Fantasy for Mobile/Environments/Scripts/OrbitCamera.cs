@@ -110,8 +110,6 @@ public class OrbitCamera : MonoBehaviour
 	{
 		if (TargetLookAt == null)
 		   return;
-		
-		Debug.Log("a");
  
 		HandlePlayerInput();
  

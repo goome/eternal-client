@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 public class LoginUI : MonoBehaviour {
 
+	private InputField accountInput;
+	private InputField passwordInput;
     private Button loginBtn;
     private Button registBtn;
-    private InputField accountFiled;
     private Text msgText;
 
     private static LoginUI instance;
@@ -32,12 +33,13 @@ public class LoginUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        accountFiled = GameObject.Find("AccountField").GetComponent<InputField>();
-        msgText = GameObject.Find("MsgText").GetComponent<Text>();
-
-        loginBtn = GameObject.Find("LoginBtn").GetComponent<Button>();
-        loginBtn.onClick.AddListener(() => OnButtonClick(ButtonType.LOGIN));
-        registBtn = GameObject.Find("RegistBtn").GetComponent<Button>();
+		msgText = GameObject.Find("MsgText").GetComponent<Text>();
+		accountInput = GameObject.Find("AccountInput").GetComponent<InputField>();
+		passwordInput = GameObject.Find("PasswordInput").GetComponent<InputField>();
+		loginBtn = GameObject.Find("LoginBtn").GetComponent<Button>();
+		registBtn = GameObject.Find("RegistBtn").GetComponent<Button>();
+       
+        loginBtn.onClick.AddListener(() => OnButtonClick(ButtonType.LOGIN));       
         registBtn.onClick.AddListener(() => OnButtonClick(ButtonType.REGIST));
 	}
 	
@@ -48,20 +50,27 @@ public class LoginUI : MonoBehaviour {
 
     private void OnButtonClick(ButtonType type)
     {
-        string account = accountFiled.text;
-        Debug.Log("---"+account+"---");
+        string account = accountInput.text;
+		string password = passwordInput.text;
+		Debug.Log("---"+account+"---" + password);
         if(account.Equals(""))
         {
-            ShowErrorMsg("请先输入账号");
+            ShowErrorMsg("账号不能为空");
             return;
         }
+		if (password.Equals("")) 
+		{
+			ShowErrorMsg ("密码不能为空");
+			return;
+		}
+
         if(type == ButtonType.LOGIN)
         {
-            AccountController.Instance.SendLoginRequest(account);
+			AccountController.Instance.SendLoginRequest(account, password);
         }
         else if(type == ButtonType.REGIST)
         {
-			AccountController.Instance.SendRegistRequest(account);
+			AccountController.Instance.SendRegistRequest(account, password);
         }
     }
 

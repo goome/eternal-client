@@ -41,7 +41,7 @@ public class RoleUI : MonoBehaviour {
         msgText = GameObject.Find("MsgText").GetComponent<Text>();
         nicknameInput = GameObject.Find("NicknameInput").GetComponent<InputField>();
 
-		long authid = ApplicationData.authid;
+		string authid = ApplicationData.authid;
 		RoleController.Instance.SendRoleListRequest(authid);
 	}
 	
@@ -74,7 +74,7 @@ public class RoleUI : MonoBehaviour {
         this.msgText.text = msg;
     }
 		
-    public void ShowRoleList(List<Role> roles)
+	public void ShowRoleList(List<MsgRole> roles)
     {
 
     }
