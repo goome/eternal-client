@@ -16,15 +16,18 @@ public class RoleUI : MonoBehaviour {
         }
     }
 
-    private Button createBtn;
-    private Button enterBtn;
+	private Button enterGameBtn;
+    private Button createRoleBtn;
+	private Button deleteRoleBtn;
+
     private InputField nicknameInput;
     private Text msgText;
 
     enum ButtonType
     {
+		ENTER_GAME,
         CREATE_ROLE,
-        ENTER_GAME
+		DELETE_ROLE
     }
 
     void Awake() {
@@ -33,10 +36,15 @@ public class RoleUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        createBtn = GameObject.Find("CreateBtn").GetComponent<Button>();
-        createBtn.onClick.AddListener(() => OnButtonClick(ButtonType.CREATE_ROLE));
-        enterBtn = GameObject.Find("EnterBtn").GetComponent<Button>();
-        enterBtn.onClick.AddListener(() => OnButtonClick(ButtonType.ENTER_GAME));
+		enterGameBtn = GameObject.Find("EnterGameBtn").GetComponent<Button>();
+		enterGameBtn.onClick.AddListener(() => OnButtonClick(ButtonType.ENTER_GAME));
+
+		createRoleBtn = GameObject.Find("CreateRoleBtn").GetComponent<Button>();
+		createRoleBtn.onClick.AddListener(() => OnButtonClick(ButtonType.CREATE_ROLE));
+
+		deleteRoleBtn = GameObject.Find("DeleteRoleBtn").GetComponent<Button>();
+		deleteRoleBtn.onClick.AddListener(() => OnButtonClick(ButtonType.DELETE_ROLE));
+
 
         msgText = GameObject.Find("MsgText").GetComponent<Text>();
         nicknameInput = GameObject.Find("NicknameInput").GetComponent<InputField>();
@@ -52,19 +60,19 @@ public class RoleUI : MonoBehaviour {
 
     private void OnButtonClick(ButtonType type)
     {
-        string account = nicknameInput.text;
-        Debug.Log("---" + account + "---");
-        if (account.Equals(""))
+        string nickname = nicknameInput.text;
+		Debug.Log("---" + nickname + "---");
+		if (nickname.Equals(""))
         {
             ShowErrorMsg("昵称不能为空");
             return;
         }
-        if (type == ButtonType.CREATE_ROLE)
-        {
-            RoleController.Instance.SendRoleCreateRequest(account);
-        }
-        else if (type == ButtonType.ENTER_GAME)
-        {
+
+		if (type == ButtonType.CREATE_ROLE) {
+			RoleController.Instance.SendRoleCreateRequest (nickname);
+		} else if (type == ButtonType.DELETE_ROLE) {
+			
+		} else if (type == ButtonType.ENTER_GAME) {
             
         }
     }

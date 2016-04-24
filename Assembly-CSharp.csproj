@@ -142,11 +142,12 @@
      <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\WaterFlow.cs" />
      <Compile Include="Assets\Scripts\Account\AccountController.cs" />
      <Compile Include="Assets\Scripts\Account\LoginUI.cs" />
+     <Compile Include="Assets\Scripts\Account\ServerController.cs" />
+     <Compile Include="Assets\Scripts\Account\ServerUI.cs" />
      <Compile Include="Assets\Scripts\ApplicationData.cs" />
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\Scripts\Message\AccountMessage.cs" />
      <Compile Include="Assets\Scripts\Message\RoleMessage.cs" />
-     <Compile Include="Assets\Scripts\Message\ServerMessage.cs" />
      <Compile Include="Assets\Scripts\Net\CircularBuffer.cs" />
      <Compile Include="Assets\Scripts\Net\Message.cs" />
      <Compile Include="Assets\Scripts\Net\MessageController.cs" />
