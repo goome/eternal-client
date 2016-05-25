@@ -24,7 +24,7 @@ namespace account_message {
 	}
 
 	[ProtoContract]
-	class MsgAccountRegistRequest {
+	class MsgAccountRegisterRequest {
 		[ProtoMember(1)]
 		public string account { get; set; }
 		[ProtoMember(2)]
@@ -32,7 +32,7 @@ namespace account_message {
 	}
 
 	[ProtoContract]
-	class MsgAccountRegistResponse {
+	class MsgAccountRegisterResponse {
 		[ProtoMember(1)]
 		public bool success { get; set; }
 		[ProtoMember(2)]

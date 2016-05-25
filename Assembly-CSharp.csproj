@@ -133,13 +133,15 @@
      <Compile Include="Assets\3rd\protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
      <Compile Include="Assets\3rd\protobuf-net\SubItemToken.cs" />
      <Compile Include="Assets\3rd\protobuf-net\WireType.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\CloudFlow.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\FloatObject.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\FollowObject.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\OrbitCamera.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\RandomMoveOnTerrain.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\TestParticles.cs" />
-     <Compile Include="Assets\First Fantasy for Mobile\Environments\Scripts\WaterFlow.cs" />
+     <Compile Include="Assets\Models\Blade_Warrior\scripts\Animaton_Control.cs" />
+     <Compile Include="Assets\Models\Blade_Warrior\scripts\View_Rotate.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\CloudFlow.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\FloatObject.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\FollowObject.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\OrbitCamera.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\RandomMoveOnTerrain.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\TestParticles.cs" />
+     <Compile Include="Assets\Models\First Fantasy for Mobile\Environments\Scripts\WaterFlow.cs" />
      <Compile Include="Assets\Scripts\Account\AccountController.cs" />
      <Compile Include="Assets\Scripts\Account\LoginUI.cs" />
      <Compile Include="Assets\Scripts\Account\ServerController.cs" />
@@ -157,14 +159,15 @@
      <Compile Include="Assets\Scripts\Net\Protocol.cs" />
      <Compile Include="Assets\Scripts\Role\RoleController.cs" />
      <Compile Include="Assets\Scripts\Role\RoleUI.cs" />
-     <None Include="Assets\First Fantasy for Mobile\Environments\Shaders\Mobile Transparent Vertex Color.shader" />
-     <None Include="Assets\First Fantasy for Mobile\Environments\Shaders\Water Diffuse.shader" />
-     <None Include="Assets\First Fantasy for Mobile\Environments\Shaders\Water Heightmap.shader" />
-     <None Include="Assets\First Fantasy for Mobile\Environments\Shaders\Water Simple.shader" />
-     <None Include="Assets\First Fantasy for Mobile\!Tips.txt" />
-     <None Include="Assets\First Fantasy for Mobile\Environments\Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Models\First Fantasy for Mobile\Environments\Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\Models\First Fantasy for Mobile\Environments\Shaders\Water Diffuse.shader" />
+     <None Include="Assets\Models\First Fantasy for Mobile\Environments\Shaders\Water Heightmap.shader" />
+     <None Include="Assets\Models\First Fantasy for Mobile\Environments\Shaders\Water Simple.shader" />
+     <None Include="Assets\Models\Blade_girl\ReadMe_[V 2.0]_03_25.txt" />
+     <None Include="Assets\Models\First Fantasy for Mobile\!Tips.txt" />
+     <None Include="Assets\Models\First Fantasy for Mobile\Environments\Shaders\Mobile Particles Additive Culled.shader" />
      <None Include="Assets\3rd\protobuf-net\Web\TODO.txt" />
-     <None Include="Assets\First Fantasy for Mobile\!Readme.txt" />
+     <None Include="Assets\Models\First Fantasy for Mobile\!Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

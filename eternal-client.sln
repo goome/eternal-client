@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{4A9B6B8E-276A-6178-9C15-625848C69279}") = "eternal-client", "Assembly-CSharp.csproj", "{2C7CB105-5694-1A05-CED6-64DA4334C827}"
 EndProject
+Project("{4A9B6B8E-276A-6178-9C15-625848C69279}") = "eternal-client", "Assembly-UnityScript.unityproj", "{3ADE9868-D7B6-6517-DEDE-47663C33F675}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2C7CB105-5694-1A05-CED6-64DA4334C827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7CB105-5694-1A05-CED6-64DA4334C827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7CB105-5694-1A05-CED6-64DA4334C827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADE9868-D7B6-6517-DEDE-47663C33F675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADE9868-D7B6-6517-DEDE-47663C33F675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADE9868-D7B6-6517-DEDE-47663C33F675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADE9868-D7B6-6517-DEDE-47663C33F675}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

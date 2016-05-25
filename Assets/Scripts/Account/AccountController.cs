@@ -35,7 +35,7 @@ public class AccountController : MessageController {
             case Message.MSG_ACCOUNT_LOGIN_RESPONSE_S2C & 0x0000FFFF:
                 OnAccountLoginResponse(stream);
                 break;
-            case Message.MSG_ACCOUNT_REGIST_RESPONSE_S2C & 0x0000FFFF:
+            case Message.MSG_ACCOUNT_REGISTER_RESPONSE_S2C & 0x0000FFFF:
                 OnAccountRegistResponse(stream);
                 break;
             default:
@@ -63,7 +63,7 @@ public class AccountController : MessageController {
 
     private void OnAccountRegistResponse(MemoryStream stream)
     {
-        MsgAccountRegistResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountRegistResponse>(stream);
+        MsgAccountRegisterResponse response = ProtoBuf.Serializer.Deserialize<MsgAccountRegisterResponse>(stream);
 		string authid = response.authid;
 		bool success = response.success;
 		Debug.Log("-------authid:" + authid + "," + success);
@@ -94,13 +94,13 @@ public class AccountController : MessageController {
 
 	public void SendRegistRequest(string account, string password)
     {
-        MsgAccountRegistRequest request = new MsgAccountRegistRequest();
+        MsgAccountRegisterRequest request = new MsgAccountRegisterRequest();
         request.account = account;
 		request.password = password;
 
         MemoryStream stream = new MemoryStream();
-        Serializer.Serialize<MsgAccountRegistRequest>(stream, request);
+        Serializer.Serialize<MsgAccountRegisterRequest>(stream, request);
 
-        NetManager.Instance.Send(Message.MSG_ACCOUNT_REGIST_REQUEST_C2S, stream);
+        NetManager.Instance.Send(Message.MSG_ACCOUNT_REGISTER_REQUEST_C2S, stream);
     }
 }

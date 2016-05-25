@@ -11,8 +11,8 @@ public class Message
     public const int MSG_LOGIN_MODULE_NO                        = 0x00010000;
     public const int MSG_ACCOUNT_LOGIN_REQUEST_C2S              = 0x00010001;
     public const int MSG_ACCOUNT_LOGIN_RESPONSE_S2C             = 0x00010002;
-    public const int MSG_ACCOUNT_REGIST_REQUEST_C2S             = 0x00010003;
-    public const int MSG_ACCOUNT_REGIST_RESPONSE_S2C            = 0x00010004;
+    public const int MSG_ACCOUNT_REGISTER_REQUEST_C2S           = 0x00010003;
+    public const int MSG_ACCOUNT_REGISTER_RESPONSE_S2C          = 0x00010004;
 
     public const int MSG_ROLE_MODULE_NO                         = 0x00020000;
     public const int MSG_ROLE_LIST_REQUEST_C2S                  = 0x00020001;
